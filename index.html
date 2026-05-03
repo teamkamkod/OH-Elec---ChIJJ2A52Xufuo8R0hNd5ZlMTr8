@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OH Elec — électricien — Nîmes</title>
+  <meta name="description" content="OH Elec, électricien à Nîmes, offre des services fiables et réactifs pour tous vos besoins électriques." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #2C3A47;
+      --secondary: #F6B93B;
+      --background: #F9FAFB;
+      --text: #232323;
+      --cta: #E17055;
+      --radius: 4px;
+      --section-pad: 64px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+
+    img { display: block; width: 100%; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAVIGATION ─── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      background: var(--primary);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .nav-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--secondary);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--secondary); }
+
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--primary);
+      padding: 16px 24px 24px;
+      gap: 16px;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      z-index: 998;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .hamburger { display: none; }
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 64px;
+    }
+
+    .hero-inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-text-col {
+      background: var(--primary);
+      padding: 48px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      order: 2;
+    }
+
+    .hero-image-col {
+      order: 1;
+      overflow: hidden;
+      min-height: 240px;
+      max-height: 240px;
+    }
+
+    .hero-image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--secondary);
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+
+    .hero-h1 {
+      font-size: clamp(1.6rem, 5vw, 3.8rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      background: var(--cta);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-align: center;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: #c75f47; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 13px 28px;
+      border-radius: var(--radius);
+      border: 2px solid rgba(255,255,255,0.55);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      text-align: center;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--secondary); color: var(--secondary); }
+
+    @media (min-width: 768px) {
+      #hero { min-height: 100vh; }
+      .hero-inner { flex-direction: row; }
+      .hero-text-col {
+        order: 1;
+        width: 50%;
+        padding: 80px 48px;
+        max-height: none;
+      }
+      .hero-image-col {
+        order: 2;
+        width: 50%;
+        min-height: unset;
+        max-height: unset;
+      }
+      .hero-ctas { flex-direction: row; }
+      .btn-primary, .btn-secondary { width: auto; }
+    }
+
+    /* ─── SECTIONS COMMON ─── */
+    .section { padding: 48px 16px; }
+    .section-alt { background: #fff; }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+      margin-top: 10px;
+    }
+    .section-title.center { text-align: center; }
+    .section-title.center::after { margin: 10px auto 0; }
+
+    .section-subtitle {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+    .section-subtitle.center { text-align: center; }
+
+    @media (min-width: 1024px) {
+      .section { padding: var(--section-pad) 40px; }
+      .container { max-width: 1140px; margin: 0 auto; }
+    }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--background); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    @media (min-width: 600px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: 0 2px 16px rgba(44,58,71,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-top: 3px solid var(--secondary);
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(44,58,71,0.14); }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .service-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* ─── ZONE INTERVENTION ─── */
+    #zone-intervention { background: var(--primary); color: #fff; }
+    #zone-intervention .section-title { color: #fff; }
+    #zone-intervention .section-title::after { background: var(--secondary); }
+
+    .zone-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .zone-text p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .zone-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .zone-tag {
+      background: rgba(246,185,59,0.18);
+      color: var(--secondary);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(246,185,59,0.35);
+    }
+
+    .zone-map {
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 300px;
+    }
+    .zone-map iframe { width: 100%; height: 100%; border: none; }
+
+    @media (min-width: 768px) {
+      .zone-inner { flex-direction: row; align-items: flex-start; }
+      .zone-text { flex: 1; }
+      .zone-map { flex: 1; }
+    }
+
+    /* ─── REVIEWS ─── */
+    #avis-clients { background: var(--background); }
+
+    .rating-summary {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .rating-badge {
+      background: var(--primary);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      min-width: 100px;
+    }
+    .rating-badge .score {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1;
+    }
+    .rating-badge .stars { font-size: 1.1rem; letter-spacing: 2px; color: var(--secondary); }
+    .rating-badge .count { font-size: 0.78rem; color: rgba(255,255,255,0.7); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .review-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 2px 16px rgba(44,58,71,0.07);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .review-stars { color: var(--secondary); font-size: 1rem; letter-spacing: 2px; }
+    .review-text {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.65;
+      flex: 1;
+      font-style: italic;
+    }
+    .review-author {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--primary);
+    }
+
+    /* ─── PRESENTATION / ABOUT ─── */
+    #presentation { background: #fff; }
+
+    .about-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .about-text { flex: 1; }
+    .about-text p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .stat-item {
+      background: var(--background);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      text-align: center;
+      flex: 1;
+      min-width: 100px;
+      border-left: 3px solid var(--secondary);
+    }
+    .stat-item .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .stat-item .stat-label {
+      font-size: 0.78rem;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    .about-gallery {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+    }
+    .about-gallery img {
+      border-radius: var(--radius);
+      height: 160px;
+      object-fit: cover;
+    }
+    .about-gallery img:first-child {
+      grid-column: 1 / -1;
+      height: 200px;
+    }
+
+    @media (min-width: 768px) {
+      .about-inner { flex-direction: row; }
+      .about-gallery { max-width: 420px; }
+    }
+
+    /* ─── GUARANTEES ─── */
+    #garanties { background: var(--secondary); }
+    #garanties .section-title { color: var(--primary); }
+    #garanties .section-title::after { background: var(--primary); }
+
+    .garanties-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 36px;
+    }
+    @media (min-width: 600px) {
+      .garanties-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .garanties-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .garantie-item {
+      background: rgba(255,255,255,0.9);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .garantie-icon { font-size: 2.2rem; margin-bottom: 10px; }
+    .garantie-item h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .garantie-item p { font-size: 0.85rem; color: #555; }
+
+    /* ─── CONTACT ─── */
+    #contact-rapide { background: var(--background); }
+
+    .contact-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .contact-info { flex: 1; }
+    .contact-info p {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 24px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .contact-detail-icon {
+      background: var(--primary);
+      color: var(--secondary);
+      border-radius: var(--radius);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-detail-text strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+    .contact-detail-text span {
+      font-size: 0.95rem;
+      color: #444;
+    }
+    .contact-detail-text a { color: var(--cta); font-weight: 500; }
+    .contact-detail-text a:hover { text-decoration: underline; }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+    .hours-table tr { border-bottom: 1px solid #eee; }
+    .hours-table td { padding: 7px 4px; }
+    .hours-table td:first-child { font-weight: 600; color: var(--primary); min-width: 90px; }
+    .hours-table .closed { color: #aaa; }
+
+    .contact-form-wrap { flex: 1; }
+
+    .contact-form {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: 0 2px 16px rgba(44,58,71,0.08);
+    }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: var(--radius);
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: #fafafa;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--secondary);
+      background: #fff;
+    }
+    .form-group textarea { min-height: 110px; }
+
+    .btn-submit {
+      background: var(--cta);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px;
+      width: 100%;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 4px;
+    }
+    .btn-submit:hover { background: #c75f47; transform: translateY(-1px); }
+
+    @media (min-width: 768px) {
+      .contact-inner { flex-direction: row; }
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--primary);
+      color: #fff;
+      padding: 40px 24px 28px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .footer-brand { }
+    .footer-brand .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .footer-rating {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .footer-rating .stars { color: var(--secondary); font-size: 1rem; }
+    .footer-rating span { font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+
+    .footer-contact { }
+    .footer-contact h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+    .footer-contact p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .footer-contact a { color: var(--secondary); transition: opacity 0.2s; }
+    .footer-contact a:hover { opacity: 0.8; }
+
+    .footer-hours h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+    .footer-hours-list {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .footer-hours-list .fh-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      gap: 12px;
+    }
+    .footer-hours-list .fh-day { font-weight: 500; min-width: 80px; }
+    .footer-hours-list .closed { color: rgba(255,255,255,0.4); }
+
+    .footer-bottom {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner { flex-direction: row; flex-wrap: wrap; gap: 40px; }
+      .footer-brand { flex: 1.5; min-width: 200px; }
+      .footer-contact { flex: 1; min-width: 180px; }
+      .footer-hours { flex: 1; min-width: 180px; }
+      .footer-inner > * { max-width: 300px; }
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.55s ease;
+    }
+    .fade-in.visible { opacity: 1; }
+
+    /* ─── UTILITY ─── */
+    .container { width: 100%; }
+    @media (min-width: 1024px) {
+      .container { max-width: 1140px; margin: 0 auto; }
+    }
+
+    .call-banner {
+      background: var(--cta);
+      padding: 14px 24px;
+      text-align: center;
+    }
+    .call-banner a {
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+    .call-banner a:hover { text-decoration: underline; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" role="navigation" aria-label="Navigation principale">
+    <a href="#hero" class="nav-brand">OH Elec</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#zone-intervention">Zone</a></li>
+      <li><a href="#avis-clients">Avis</a></li>
+      <li><a href="#presentation">À propos</a></li>
+      <li><a href="#garanties">Garanties</a></li>
+      <li><a href="#contact-rapide">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#zone-intervention" class="mobile-link">Zone d'intervention</a>
+    <a href="#avis-clients" class="mobile-link">Avis clients</a>
+    <a href="#presentation" class="mobile-link">À propos</a>
+    <a href="#garanties" class="mobile-link">Garanties</a>
+    <a href="#contact-rapide" class="mobile-link">Contact</a>
+  </div>
+
+  <!-- CALL BANNER -->
+  <div class="call-banner" style="margin-top:64px;">
+    <a href="tel:+33766222565">📞 Appelez-nous maintenant : +33 7 66 22 25 65</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text-col">
+        <div class="hero-badge">⚡ Électricien à Nîmes &amp; Gard</div>
+        <h1 class="hero-h1">Électricien<br />fiable à Nîmes</h1>
+        <p class="hero-sub">Intervention rapide et solutions électriques de qualité.</p>
+        <div class="hero-ctas">
+          <a href="#contact-rapide" class="btn-primary">Demander un devis</a>
+          <a href="#services" class="btn-secondary">En savoir plus</a>
+        </div>
+      </div>
+      <div class="hero-image-col">
+        <img
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-uom_zuY4wiFHxyOS317Ra1HU0w4aefvLHtVdy1ENdjYkLnYUfU_ONY3fd4KJ4BdXMsoD8-YsGRFeP5hprf1S64Zl0fs1_PhDL8Y-XXBuwEKAwrNHPwkrwt2Z-AwbxcQw6w5vs364tZpvEouUtxYkVmJ1Dzf6_oNSLyjACHiZaC4HfV2nF6321tmhw1thEDlLNiTcqcvhCr3BSuxu1sFrA1hHBIOURs_CdeWzINdWVSk47mx5naFRZoHSErYJn5LyiyuIV2i4uQhDvc7w6l7Dn_wVhV1diMn3LCENTNy9_hGsvJKMFgAMzGHUz_oa7dH_IpVIxlpd_jGot-JvIKr3Z_pFoqxQZuNsTCiNITmXEzCNS1p81kH8Cak-hzV0xiqKYsB8BmvbE3hYUC9lpeRrYRGL4Scp9VloqvshuhFydHNDJ8&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc"
+          alt="OH Elec — électricien à Nîmes"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section fade-in">
+    <div class="container">
+      <h2 class="section-title center">Nos Services</h2>
+      <p class="section-subtitle center">Des solutions électriques adaptées à chaque besoin.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3>Dépannage électrique</h3>
+          <p>Intervention rapide pour tous vos problèmes électriques.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💡</div>
+          <h3>Installation électrique</h3>
+          <p>Mise en place de systèmes électriques sécurisés.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Mise aux normes</h3>
+          <p>Assurez-vous que votre installation respecte les normes en vigueur.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <h3>Sécurité électrique</h3>
+          <p>Protégez votre maison avec des solutions de sécurité avancées.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONE INTERVENTION -->
+  <section id="zone-intervention" class="section fade-in">
+    <div class="container">
+      <h2 class="section-title">Zone d'intervention</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">OH Elec intervient à Nîmes et dans tout le département du Gard.</p>
+      <div class="zone-inner">
+        <div class="zone-text">
+          <p>Basés à Nîmes, nous intervenons rapidement sur l'ensemble du Gard (30) pour tous vos travaux électriques, en résidentiel comme en professionnel.</p>
+          <p>Notre réactivité est notre force : que ce soit pour un dépannage urgent ou une installation complète, nous sommes à votre service.</p>
+          <div class="zone-tags">
+            <span class="zone-tag">Nîmes</span>
+            <span class="zone-tag">Gard (30)</span>
+            <span class="zone-tag">Alès</span>
+            <span class="zone-tag">Beaucaire</span>
+            <span class="zone-tag">Bagnols-sur-Cèze</span>
+            <span class="zone-tag">Uzès</span>
+            <span class="zone-tag">Pont-Saint-Esprit</span>
+            <span class="zone-tag">Vauvert</span>
+          </div>
+          <div style="margin-top:28px;">
+            <a href="tel:+33766222565" class="btn-primary">Appelez maintenant</a>
+          </div>
+        </div>
+        <div class="zone-map">
+          <iframe
+            src="https://maps.google.com/maps?q=43.8202315,4.338506499999999&z=16&output=embed"
+            title="Localisation OH Elec Nîmes"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS CLIENTS -->
+  <section id="avis-clients" class="section section-alt fade-in">
+    <div class="container">
+      <h2 class="section-title center">Avis Clients</h2>
+      <p class="section-subtitle center">Ce que nos clients disent de nous.</p>
+      <div class="rating-summary" style="justify-content:center;">
+        <div class="rating-badge">
+          <span class="score">5</span>
+          <span class="stars">★★★★★</span>
+          <span class="count">25 avis</span>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"J'ai fait appel à cette société pour un problème de court-circuit, cette société a su se déplacer rapidement et régler mon problème. Je remercie et je recommande."</p>
+          <div class="review-author">thermatis nimes</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"En tant que plaquiste, j'ai l'occasion de travailler régulièrement avec cette entreprise d'électricité sur différents chantiers. La collaboration se passe toujours très bien : excellente organisation, respect..."</p>
+          <div class="review-author">PIANI SEBASTIEN</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Merci à Ouissam, il est pro et réactif. Les prix ne sont pas excessifs. Ils a vu des anomalies sur mon compteur (pas de terre) et les a rectifiés Il est revenu finir le chantier apres avoir ete payé ce qui montre son sérieux Je recommande"</p>
+          <div class="review-author">Maryline C</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTATION / ABOUT -->
+  <section id="presentation" class="section fade-in">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-text">
+          <h2 class="section-title">À propos de OH Elec</h2>
+          <p>OH Elec est votre partenaire de confiance pour tous vos besoins en électricité à Nîmes et dans le Gard. Bien que nous n'offrions pas d'estimations en ligne ou de services sur site, notre équipe est dédiée à fournir des solutions électriques de qualité supérieure.</p>
+          <p>Avec une note de 5/5 basée sur 25 avis, nous sommes fiers de notre réactivité et de notre professionnalisme.</p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-num">5/5</div>
+              <div class="stat-label">Note Google</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">25</div>
+              <div class="stat-label">Avis clients</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">7j/7</div>
+              <div class="stat-label">Disponibilité</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-gallery">
+          <img
+            src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-u3TmZpNGnDevWbgyLQ7FY5NDQNt6FT3ESiQcCBC1sLHHIgFiFAF0QdE9UYjeePw3x2QQpZGZowS1n-sDhixcwhkk6ugKUz1QDTKSfT_jUUxY0imVcHoIoVUHqf18fuotq1c13s0mtnZ01lzd4fY3352O2Pk_jTaW1y7xaC_XxfvetGfgb47Ad_m0FviyqG8kLJ2DuMF5t9MilgJ0BOCOSMnSQKeThFpMqGjY9TMH2_ZPjfC7FsMxGRlJtuyKWfh2krHE9up87G_BPHnFRFWjP-Xzf2y0KL8Eg75GzIaDDZor60vFVX82v8XA_PyQGDMvnw0TfWuxb8jQLKWgqNM7ldu9HJoMHou1H2FdD54L35rfTiIFQNJ9qhWDbPKKOm8gB0Qg0ggSyly1FC6Ro4XWhc_IVRwy4FFx_1rvPk4T3h_dxm&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc"
+            alt="Réalisation OH Elec"
+            loading="lazy"
+          />
+          <img
+            src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-sB15ktXFcd7A3hfEr5Xao8ZZhSbJq7bXkN2Xf1wykIPb-JSODG1g0QEiR_FaT7lW7iXI4LyeySBXz6qh1uJeqcI5vktAIOEf6Ak_4h21HtPIHKJvAg7L5L2wIAQdcT5ETLFBPJxZe2sj5o330pWk4rHmb3d7yXqXr5-TcNl7HrZrfDAw5pdGQnRTwt7-ejmX97TemKB78ivT7iTwBscY_qGuTD70EzSu-P-9Dw8dqoLyr9xpPRJTqLlS5-jNmL-EzdlBXCDLSe1LWKm94RJMmoMAVFH0pXFoBor_nF0D_xnxKvf-6fpMSGjp8YF3YhQ-a8aQp3wKaDNp2SqlQmVWU2SzrhQaXYYdz-ELb8PQdxdxaErx7Yo0B2ILCd97r03JgiE4cAvXMPtcePa5npKSawJCFAscQGRgpA24GaJ-8&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc"
+            alt="Travaux électriques OH Elec"
+            loading="lazy"
+          />
+          <img
+            src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-t95vD5TuyuGAx4RK-WrorjzonWPWXbxOmHzAtqkcnDKtlPALao9kc-vuZUAwOZnfOT3n9DYXH_4lDcBNbHvG4jMd63CFyZro4P3gXIxQ7Cie96oD5hoGDTGZ5KXJTXimybBRHJIYmSXxKKxM4v5bYJ3kYFWL2IDKptEzbU4_AbLfZJcL0fwioOBa4TmtMco1UfDQACJhn5cKWUZ6j9vU1bc39ZJNsbcoeTxFKYf4v1BVGI80OHUNad0llRHJ6VrqmTLj44w0s8ynwVxctAQ4C-bPYQSPHCWBLpfTo7PECSILHv2tBWTHih4glEKJVKn7TESbYYAu88fcsOQnOzUV1nJH9qRDAU7Xw_Nc3v1LcqOoiosTa3_IAmHmhG62BMNBKAjuUElPguRUXUnuIxgEs9NHpcPBqa_srlrhyhbqavYD4&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc"
+            alt="Installation électrique OH Elec"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTIES -->
+  <section id="garanties" class="section fade-in">
+    <div class="container">
+      <h2 class="section-title center" style="color:var(--primary)">Nos Garanties</h2>
+      <p class="section-subtitle center" style="color:rgba(44,58,71,0.75)">Notre engagement pour votre satisfaction.</p>
+      <div class="garanties-grid">
+        <div class="garantie-item">
+          <div class="garantie-icon">⚡</div>
+          <h4>Intervention rapide</h4>
+          <p>Nous nous déplaçons rapidement pour résoudre vos problèmes électriques.</p>
+        </div>
+        <div class="garantie-item">
+          <div class="garantie-icon">🏆</div>
+          <h4>Qualité certifiée</h4>
+          <p>Travaux réalisés dans le respect des normes électriques en vigueur.</p>
+        </div>
+        <div class="garantie-item">
+          <div class="garantie-icon">💬</div>
+          <h4>Transparence</h4>
+          <p>Prix clairs, sans mauvaise surprise, et communication ouverte.</p>
+        </div>
+        <div class="garantie-item">
+          <div class="garantie-icon">📅</div>
+          <h4>Disponibilité 6j/7</h4>
+          <p>Du lundi au samedi de 7h30 à 19h30 pour répondre à vos besoins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact-rapide" class="section section-alt fade-in">
+    <div class="container">
+      <h2 class="section-title">Contactez-nous</h2>
+      <p class="section-subtitle">Pour toute demande, veuillez nous appeler ou remplir notre formulaire de contact.</p>
+      <div class="contact-inner">
+        <div class="contact-info">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div class="contact-detail-text">
+              <strong>Adresse</strong>
+              <span>3 All. Marcel Coulon<br />30900 Nîmes, France</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📞</div>
+            <div class="contact-detail-text">
+              <strong>Téléphone</strong>
+              <a href="tel:+33766222565">+33 7 66 22 25 65</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🗺️</div>
+            <div class="contact-detail-text">
+              <strong>Google Maps</strong>
+              <a href="https://www.google.com/maps/place/?q=place_id:ChIJJ2A52Xufuo8R0hNd5ZlMTr8" target="_blank" rel="noopener noreferrer">Voir sur Google Maps</a>
+            </div>
+          </div>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:0.95rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.5px;margin:24px 0 12px;">Horaires d'ouverture</h3>
+          <table class="hours-table">
+            <tbody>
+              <tr><td>Lundi</td><td>7:30 – 19:30</td></tr>
+              <tr><td>Mardi</td><td>7:30 – 19:30</td></tr>
+              <tr><td>Mercredi</td><td>7:30 – 19:30</td></tr>
+              <tr><td>Jeudi</td><td>7:30 – 19:30</td></tr>
+              <tr><td>Vendredi</td><td>7:30 – 19:30</td></tr>
+              <tr><td>Samedi</td><td>7:30 – 19:30</td></tr>
+              <tr><td>Dimanche</td><td class="closed">Fermé</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="contact-form-wrap">
+          <div class="contact-form">
+            <h3 style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:20px;">Envoyer un message</h3>
+            <form action="#" method="POST" onsubmit="handleSubmit(event)">
+              <div class="form-group">
+                <label for="name">Nom complet</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone" placeholder="+33 6 xx xx xx xx" />
+              </div>
+              <div class="form-group">
+                <label for="service">Service souhaité</label>
+                <select id="service" name="service">
+                  <option value="">Sélectionnez un service</option>
+                  <option value="depannage">Dépannage électrique</option>
+                  <option value="installation">Installation électrique</option>
+                  <option value="normes">Mise aux normes</option>
+                  <option value="securite">Sécurité électrique</option>
+                  <option value="autre">Autre</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Décrivez votre besoin..." required></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Envoyer ma demande</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="brand-name">OH Elec</div>
+          <p>Votre électricien de confiance à Nîmes et dans le Gard. Réactif, professionnel, certifié.</p>
+          <div class="footer-rating">
+            <span class="stars">★★★★★</span>
+            <span>5/5 — 25 avis Google</span>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>📍 3 All. Marcel Coulon<br />30900 Nîmes, France</p>
+          <p>📞 <a href="tel:+33766222565">+33 7 66 22 25 65</a></p>
+          <p>🗺️ <a href="https://www.google.com/maps/place/?q=place_id:ChIJJ2A52Xufuo8R0hNd5ZlMTr8" target="_blank" rel="noopener noreferrer">Voir sur Google Maps</a></p>
+        </div>
+        <div class="footer-hours">
+          <h4>Horaires</h4>
+          <div class="footer-hours-list">
+            <div class="fh-row"><span class="fh-day">Lun–Ven</span><span>7:30 – 19:30</span></div>
+            <div class="fh-row"><span class="fh-day">Samedi</span><span>7:30 – 19:30</span></div>
+            <div class="fh-row"><span class="fh-day">Dimanche</span><span class="closed">Fermé</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 OH Elec — Électricien Nîmes — Tous droits réservés
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── HAMBURGER MENU ───
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+        mobileMenu.setAttribute('aria-hidden', true);
+      });
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+        mobileMenu.setAttribute('aria-hidden', true);
+      }
+    });
+
+    // ─── FADE IN ON SCROLL ───
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ─── FORM SUBMIT ───
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.btn-submit');
+      btn.textContent = '✓ Message envoyé !';
+      btn.style.background = '#27ae60';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Envoyer ma demande';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3500);
+    }
+
+    // ─── SMOOTH SCROLL POLYFILL ───
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 64;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ─── NAV STICKY SHADOW ───
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 10) {
+        navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.25)';
+      } else {
+        navbar.style.boxShadow = '0 2px 12px rgba(0,0,0,0.15)';
+      }
+    });
+  </script>
+</body>
+</html>
